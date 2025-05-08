@@ -1,0 +1,3 @@
+http://google.com;Wyszukiwarka Google
+http://gdansk.pja.edu.pl;Nasza uczelnia
+http://youtube.com;YouTube
