@@ -38,17 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <p><a href="strona_glowna.php">🏠 Strona główna</a></p>
 
-<h2>Kontakt z autorem: <?= htmlspecialchars($autor['username']) ?></h2>
+<h2>Kontakt z autorem: <?= $autor['username'] ?></h2>
 
 <?php if ($sukces): ?>
     <p style="color:green">✅ Wiadomość została wysłana.</p>
 <?php else: ?>
     <form method="post">
         <label>Twoja wiadomość do autora:</label><br>
-        <textarea name="wiadomosc" rows="6" cols="60"><?= htmlspecialchars($wiadomosc) ?></textarea><br>
+        <textarea name="wiadomosc" rows="6" cols="60"><?= $wiadomosc ?></textarea><br>
         <button type="submit">📤 Wyślij wiadomość</button>
     </form>
-    <p style="color:red"><?= htmlspecialchars($blad) ?></p>
+    <p style="color:red"><?= $blad ?></p>
 <?php endif; ?>
 
 </body>

@@ -54,21 +54,21 @@ $komentarze = $stmt->fetchAll();
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($post['title']) ?></title>
+    <title><?= $post['title'] ?></title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <p><a href="strona_glowna.php">🏠 Strona główna</a></p>
 
-<h2><?= htmlspecialchars($post['title']) ?></h2>
-<p><i>Autor: <?= htmlspecialchars(isset($post['username']) ? $post['username'] : 'Nieznany') ?> | <?= $post['created_at'] ?></i></p>
+<h2><?= $post['title'] ?></h2>
+<p><i>Autor: <?= isset($post['username']) ? $post['username'] : 'Nieznany' ?> | <?= $post['created_at'] ?></i></p>
 
 <?php if ($post['image']): ?>
-    <img src="<?= htmlspecialchars($post['image']) ?>" alt="obrazek" style="max-width:300px;"><br>
+    <img src="<?= $post['image'] ?>" alt="obrazek" style="max-width:300px;"><br>
 <?php endif; ?>
 
-<p><?= htmlspecialchars($post['content']) ?></p>
+<p><?= $post['content'] ?></p>
 
 <?php if (isset($post['author_id'])): ?>
     <p><button><a href="kontakt.php?autor_id=<?= $post['author_id'] ?>">📩 Skontaktuj się z autorem</a></button></p>
@@ -90,8 +90,8 @@ $komentarze = $stmt->fetchAll();
 
 <?php foreach ($komentarze as $kom): ?>
     <div class="comment">
-        <b><?= htmlspecialchars(isset($kom['username']) ? $kom['username'] : 'Gość') ?></b> napisał:
-        <p><?= htmlspecialchars($kom['content']) ?></p>
+        <b><?= isset($kom['username']) ? $kom['username'] : 'Gość' ?></b> napisał:
+        <p><?= $kom['content'] ?></p>
         <i><?= $kom['created_at'] ?></i>
     </div>
 <?php endforeach; ?>

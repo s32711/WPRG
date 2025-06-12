@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method="post">
     <label>Nazwa użytkownika:
         <input type="text" name="nazwa"
-               value="<?= isset($_COOKIE['ostatni_login']) ? htmlspecialchars($_COOKIE['ostatni_login']) : '' ?>">
+               value="<?= isset($_COOKIE['ostatni_login']) ? $_COOKIE['ostatni_login'] : '' ?>">
     </label><br>
     <label>Hasło: <input type="password" name="haslo"></label><br>
     <button type="submit">Zaloguj się</button>
 </form>
-<p style="color:red"><?= htmlspecialchars($blad) ?></p>
+<p style="color:red"><?= $blad ?></p>
 <p><a href="reset_hasla_email.php">🔑 Zapomniałeś hasła?</a></p>
 </body>
 </html>

@@ -48,13 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h2>Dodaj nowy post</h2>
 
 <form method="post" enctype="multipart/form-data">
-    <label>Tytuł: <input type="text" name="tytul" value="<?= htmlspecialchars(isset($_POST['tytul']) ? $_POST['tytul'] : '') ?>"></label><br>
-    <label>Treść: <textarea name="tresc" rows="6" cols="50"><?= htmlspecialchars(isset($_POST['tresc']) ? $_POST['tresc'] : '') ?></textarea></label><br>
+    <label>Tytuł: <input type="text" name="tytul" value="<?= isset($_POST['tytul']) ? $_POST['tytul'] : '' ?>"></label><br>
+    <label>Treść: <textarea name="tresc" rows="6" cols="50"><?= isset($_POST['tresc']) ? $_POST['tresc'] : '' ?></textarea></label><br>
     <label>Obrazek (opcjonalnie): <input type="file" name="obrazek"></label><br>
     <button type="submit">Dodaj post</button>
 </form>
 
-<p style="color:red"><?= htmlspecialchars($blad) ?></p>
+<p style="color:red"><?= $blad ?></p>
 
 </body>
 </html>

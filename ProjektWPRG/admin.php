@@ -27,7 +27,7 @@ $uzytkownicy = $stmt->fetchAll();
 foreach ($uzytkownicy as $u):
     ?>
     <div style="border:1px solid #ccc; padding:10px; margin:5px;">
-        <b><?= htmlspecialchars($u['username']) ?></b> (<?= htmlspecialchars($u['email']) ?>) – rola: <b><?= htmlspecialchars($u['role']) ?></b>
+        <b><?= $u['username'] ?></b> (<?= $u['email'] ?>) – rola: <b><?= ($u['role']) ?></b>
         <?php if ($u['role'] !== 'admin'): ?>
             | <a href="zmien_role.php?id=<?= $u['id'] ?>&na=author">Ustaw jako author</a>
             | <a href="zmien_role.php?id=<?= $u['id'] ?>&na=user">Ustaw jako user</a>
@@ -44,7 +44,7 @@ $posty = $stmt->fetchAll();
 
 foreach ($posty as $p): ?>
     <div style="border:1px solid #aaa; padding:10px; margin-bottom:10px;">
-        <b><?= htmlspecialchars($p['title']) ?></b> (<?= htmlspecialchars(isset($p['username']) ? $p['username'] : 'Nieznany') ?>, <?= htmlspecialchars($p['created_at']) ?>)
+        <b><?= ($p['title']) ?></b> (<?= isset($p['username']) ? $p['username'] : 'Nieznany' ?>, <?= $p['created_at'] ?>)
         <br>
         <a href="edytuj_post.php?id=<?= $p['id'] ?>">✏️ Edytuj</a> |
         <a href="usun_post.php?id=<?= $p['id'] ?>" onclick="return confirm('Usunąć post?')">🗑️ Usuń</a>

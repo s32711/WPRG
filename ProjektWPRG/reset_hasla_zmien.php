@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 
-<h2>Nowe hasło dla konta: <?= htmlspecialchars($user['username']) ?></h2>
+<h2>Nowe hasło dla konta: <?= $user['username'] ?></h2>
 <form method="post">
     <label>Nowe hasło: <input type="password" name="haslo"></label><br>
     <label>Powtórz hasło: <input type="password" name="haslo2"></label><br>

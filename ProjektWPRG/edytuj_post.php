@@ -60,13 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h2>Edytuj post</h2>
 
 <form method="post" enctype="multipart/form-data">
-    <label>Tytuł: <input type="text" name="tytul" value="<?= htmlspecialchars($post['title'])?>"></label><br>
-    <label>Treść: <textarea name="tresc" rows="6" cols="50"><?= htmlspecialchars($post['content']) ?></textarea></label><br>
+    <label>Tytuł: <input type="text" name="tytul" value="<?= $post['title']?>"></label><br>
+    <label>Treść: <textarea name="tresc" rows="6" cols="50"><?= $post['content'] ?></textarea></label><br>
     <label>Nowy obrazek (jeśli chcesz zmienić): <input type="file" name="obrazek"></label><br>
     <button type="submit">Zapisz zmiany</button>
 </form>
 
-<p style="color:red"><?= htmlspecialchars($blad) ?></p>
+<p style="color:red"><?= $blad ?></p>
 
 </body>
 </html>

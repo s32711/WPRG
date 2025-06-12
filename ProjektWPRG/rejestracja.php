@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <label>Hasło: <input type="password" name="haslo"></label><br>
     <button type="submit">Zarejestruj się</button>
 </form>
-<p style="color:red"><?= htmlspecialchars($blad) ?></p>
+<p style="color:red"><?= $blad ?></p>
 
 </body>
 </html>
