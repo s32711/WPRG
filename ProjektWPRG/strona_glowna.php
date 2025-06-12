@@ -6,7 +6,7 @@ require_once 'sesja.php';
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Tytuł strony</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,8 +52,7 @@ if ($posty):
                 <img src="<?= $post['image'] ?>" alt="obrazek" style="max-width:300px;"><br>
             <?php endif; ?>
             <p><?= $post['content'] ?></p>
-            <?php if (isset($_SESSION['uzytkownik_id']) &&
-                ( $_SESSION['rola'] === 'admin' || $_SESSION['uzytkownik_id'] == $post['author_id'])): ?>
+            <?php if (isset($_SESSION['uzytkownik_id']) && ( $_SESSION['rola'] === 'admin' || $_SESSION['uzytkownik_id'] == $post['author_id'])): ?>
                 <p>
                     <button><a href="edytuj_post.php?id=<?= $post['id'] ?>">✏️ Edytuj</a></button> |
                     <button><a href="usun_post.php?id=<?= $post['id'] ?>" onclick="return confirm('Na pewno usunąć ten post?');">🗑️ Usuń</a></button>

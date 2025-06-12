@@ -54,7 +54,7 @@ $komentarze = $stmt->fetchAll();
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title><?= $post['title'] ?></title>
+    <title>Post</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
