@@ -21,19 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $obrazek = $post['image'];
 
     if (!empty($_FILES['obrazek']['name'])) {
-        $dozwolone_typy = ['image/jpeg', 'image/png'];
+        $nazwa_pliku = basename($_FILES['obrazek']['name']);
+        $sciezka_docelowa = 'zdjecia/' . time() . '_' . $nazwa_pliku;
 
-        if (in_array($_FILES['obrazek']['type'], $dozwolone_typy)) {
-            $nazwa_pliku = basename($_FILES['obrazek']['name']);
-            $sciezka_docelowa = 'zdjecia/' . time() . '_' . $nazwa_pliku;
-
-            if (!move_uploaded_file($_FILES['obrazek']['tmp_name'], $sciezka_docelowa)) {
-                $blad = "Nie udało się przesłać obrazka.";
-            } else {
-                $obrazek = $sciezka_docelowa;
-            }
+        if (!move_uploaded_file($_FILES['obrazek']['tmp_name'], $sciezka_docelowa)) {
+            $blad = "Nie udało się przesłać obrazka.";
         } else {
-            $blad = "Nieprawidłowy format pliku. Dozwolone: JPG i PNG.";
+            $obrazek = $sciezka_docelowa;
         }
     }
 
