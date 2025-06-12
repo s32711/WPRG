@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS blog_s32711;
 USE blog_s32711;
 
--- Tabela użytkowników
 CREATE TABLE users (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        username VARCHAR(50) UNIQUE NOT NULL,
@@ -10,7 +9,6 @@ CREATE TABLE users (
                        role ENUM('admin', 'author', 'user') DEFAULT 'user'
 );
 
--- Tabela wpisów (postów)
 CREATE TABLE posts (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        title VARCHAR(255) NOT NULL,
@@ -21,7 +19,6 @@ CREATE TABLE posts (
                        FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE SET NULL
 );
 
--- Tabela komentarzy
 CREATE TABLE comments (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           post_id INT,
